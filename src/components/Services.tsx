@@ -112,8 +112,8 @@ const Services = () => {
           <h3 className="text-2xl font-bold mb-8">Trusted Integrations</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {integrations.map((integration, index) => (
-              <Card key={index} className="p-4 text-center hover:border-primary/50 transition-colors">
-                <CardContent className="space-y-2">
+              <Card key={index} className="text-center hover:border-primary/50 transition-colors">
+                <CardContent className="p-4 space-y-2">
                   <div className="font-semibold">{integration.name}</div>
                   <Badge variant="outline" className="text-xs">
                     {integration.category}

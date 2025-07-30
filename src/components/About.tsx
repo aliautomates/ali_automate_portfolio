@@ -27,8 +27,8 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center p-6 hover:border-primary/50 transition-colors">
-              <CardContent className="space-y-4">
+            <Card key={index} className="text-center hover:border-primary/50 transition-colors">
+              <CardContent className="p-6 space-y-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                   <stat.icon className="w-8 h-8 text-primary" />
                 </div>
@@ -64,8 +64,8 @@ const About = () => {
 
           <div className="space-y-6">
             <h3 className="text-2xl font-bold">Education & Background</h3>
-            <Card className="p-6">
-              <CardContent className="space-y-4">
+            <Card>
+              <CardContent className="p-6 space-y-4">
                 <div className="flex items-center gap-3">
                   <GraduationCap className="w-6 h-6 text-primary" />
                   <div>
