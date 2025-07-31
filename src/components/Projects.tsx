@@ -2,8 +2,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Clock, Users, Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Projects = () => {
+  const navigate = useNavigate();
+
+  const handleViewAllProjects = () => {
+    navigate("/projects");
+  };
+
   const projects = [
     {
       category: "AI/Automation Projects",
@@ -177,7 +184,9 @@ const Projects = () => {
             </div>
           </div>
           <Button size="lg">
-            View All Projects
+            <Button size="lg" onClick={handleViewAllProjects}>
+              View All Projects
+            </Button>
           </Button>
         </div>
       </div>

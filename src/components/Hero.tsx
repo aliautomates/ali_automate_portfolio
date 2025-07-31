@@ -22,13 +22,17 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="group">
-              Let's Automate Your Workflow
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-            </Button>
-            <Button variant="outline" size="lg">
-              View My Work
-            </Button>
+            <a href="#contact">
+              <Button size="lg" className="group">
+                Let's Automate Your Workflow
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              </Button>
+            </a>
+            <a href="#projects">
+              <Button variant="outline" size="lg">
+                View My Work
+              </Button>
+            </a>
           </div>
 
           <div className="flex items-center gap-6 text-sm">

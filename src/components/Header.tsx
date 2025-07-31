@@ -35,7 +35,7 @@ const Header = () => {
           </nav>
 
           <Button className="hidden md:block">
-            Let's Talk
+            <a href="#contact">Let's Talk</a>
           </Button>
 
           {/* Mobile Menu Button */}
@@ -61,7 +61,7 @@ const Header = () => {
               </a>
             ))}
             <Button className="mt-4 w-full">
-              Let's Talk
+              <a href="#contact">Let's Talk</a>
             </Button>
           </nav>
         )}

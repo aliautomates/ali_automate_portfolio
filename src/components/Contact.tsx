@@ -93,13 +93,13 @@ const Contact = () => {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Connect with me",
-      link: "#"
+      link: "https://www.linkedin.com/in/aliautomates"
     },
     {
       icon: Github,
       label: "GitHub",
       value: "View my code",
-      link: "#"
+      link: "https://github.com/aliautomates"
     }
   ];
 

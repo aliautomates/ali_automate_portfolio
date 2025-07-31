@@ -32,24 +32,32 @@ const Footer = () => {
             <a 
               href="mailto:ali.ahsen1223@gmail.com" 
               className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-background transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Mail className="w-5 h-5" />
             </a>
             <a 
               href="https://wa.me/923019188484" 
               className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-background transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <MessageSquare className="w-5 h-5" />
             </a>
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/aliautomates" 
               className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-background transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a 
-              href="#" 
+              href="https://github.com/aliautomates" 
               className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-background transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Github className="w-5 h-5" />
             </a>
