@@ -12,10 +12,70 @@ import {
   ExternalLink,
   Send,
   MapPin,
-  Clock
+  Clock,
+  Loader2
 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import emailjs from "@emailjs/browser";
+import { toast } from "@/hooks/use-toast";
+
+// Form validation schema
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  company: z.string().optional(),
+  project: z.string().min(1, "Please select a project type"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      // EmailJS configuration
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        company: data.company || "Not specified",
+        project_type: data.project,
+        message: data.message,
+        to_name: "Ali Ahsen",
+      };
+
+      await emailjs.send(
+        "service_4l6jv17", // Service ID
+        "template_7p1qkmg", // Template ID
+        templateParams,
+        "icmRWpIsDAST2yOJf" // Public Key
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      reset(); // Reset form after successful submission
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast({
+        variant: "destructive",
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+      });
+    }
+  };
   const contactInfo = [
     {
       icon: Mail,
@@ -67,47 +127,92 @@ const Contact = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" placeholder="Your name" />
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input 
+                      id="name" 
+                      placeholder="Your name"
+                      {...register("name")}
+                    />
+                    {errors.name && (
+                      <p className="text-sm text-destructive">{errors.name.message}</p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="your@email.com"
+                      {...register("email")}
+                    />
+                    {errors.email && (
+                      <p className="text-sm text-destructive">{errors.email.message}</p>
+                    )}
+                  </div>
                 </div>
+                
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="your@email.com" />
+                  <Label htmlFor="company">Company (Optional)</Label>
+                  <Input 
+                    id="company" 
+                    placeholder="Your company"
+                    {...register("company")}
+                  />
                 </div>
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="company">Company (Optional)</Label>
-                <Input id="company" placeholder="Your company" />
-              </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="project">Project Type</Label>
-                <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
-                  <option value="">Select project type</option>
-                  <option value="automation">Business Process Automation</option>
-                  <option value="marketing">Marketing Automation</option>
-                  <option value="scraping">Web Scraping</option>
-                  <option value="integration">System Integration</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="project">Project Type</Label>
+                  <select 
+                    {...register("project")}
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <option value="">Select project type</option>
+                    <option value="automation">Business Process Automation</option>
+                    <option value="marketing">Marketing Automation</option>
+                    <option value="scraping">Web Scraping</option>
+                    <option value="integration">System Integration</option>
+                    <option value="other">Other</option>
+                  </select>
+                  {errors.project && (
+                    <p className="text-sm text-destructive">{errors.project.message}</p>
+                  )}
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Tell me about your project and automation needs..."
-                  className="min-h-[120px]"
-                />
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea 
+                    id="message" 
+                    placeholder="Tell me about your project and automation needs..."
+                    className="min-h-[120px]"
+                    {...register("message")}
+                  />
+                  {errors.message && (
+                    <p className="text-sm text-destructive">{errors.message.message}</p>
+                  )}
+                </div>
 
-              <Button className="w-full" size="lg">
-                Send Message
-                <Send className="ml-2 w-4 h-4" />
-              </Button>
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  size="lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 w-4 h-4" />
+                    </>
+                  )}
+                </Button>
+              </form>
             </CardContent>
           </Card>
 
