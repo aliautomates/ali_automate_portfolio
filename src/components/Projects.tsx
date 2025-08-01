@@ -68,6 +68,13 @@ const Projects = () => {
           tools: ["Python", "Selenium", "JSON"],
           impact: "Reduced data entry time by 90%",
           icon: "📝"
+        },
+        {
+          title: "WhatsApp Business Bot",
+          description: "Automated customer service and lead qualification through WhatsApp messaging.",
+          tools: ["Python", "WhatsApp API", "AI Integration"],
+          impact: "Handled 800+ daily messages",
+          icon: "💬"
         }
       ]
     },

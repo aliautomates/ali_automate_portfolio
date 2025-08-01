@@ -56,12 +56,9 @@ const Hero = () => {
             <img
               src={aliProfile}
               alt="Ali Ahsen - Business Automation Expert"
-              className="relative w-80 h-80 object-cover object-top rounded-full border-4 border-primary/20"
+              className="relative w-80 h-80 object-cover object-top rounded-full border-4 border-primary/20 animate-float"
               style={{ objectPosition: '50% 20%' }}
             />
-            <div className="absolute top-4 right-4 bg-primary text-background px-3 py-1 rounded-full text-sm font-medium">
-              Available for Projects
-            </div>
           </div>
         </div>
       </div>

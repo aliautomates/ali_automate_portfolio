@@ -10,10 +10,10 @@ const Footer = () => {
         <div className="text-center space-y-8">
           <div>
             <h3 className="text-3xl font-bold mb-4">
-              SKETCH — DESIGN — <span className="text-primary">DEVELOPMENT</span>
+              AUTOMATE — OPTIMIZE — <span className="text-primary">ACCELERATE</span>
             </h3>
             <p className="text-muted-foreground">
-              Automating businesses worldwide with innovative no-code solutions
+              Transforming businesses worldwide with intelligent AI automation solutions
             </p>
           </div>
 

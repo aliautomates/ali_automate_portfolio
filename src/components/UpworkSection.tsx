@@ -66,15 +66,16 @@ const UpworkSection = () => {
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                 <div>
-                  <h4 className="font-semibold mb-1">2,000+ Hours Worked</h4>
-                  <p className="text-muted-foreground">Extensive experience across diverse projects</p>
+                  <h4 className="font-semibold mb-1">22 Jobs Completed</h4>
+                  <p className="text-muted-foreground">Successfully delivered diverse automation projects</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                 <div>
-                  <h4 className="font-semibold mb-1">$50K+ Total Earned</h4>
-                  <p className="text-muted-foreground">Proven value delivery to clients</p>
+                  <h4 className="font-semibold mb-1">$1K+ Total Earned</h4>
+                  <p className="text-muted-foreground">Growing portfolio with proven results</p>
+                  <p className="text-muted-foreground">Growing portfolio with proven results</p>
                 </div>
               </div>
             </div>

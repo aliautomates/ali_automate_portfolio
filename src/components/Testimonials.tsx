@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Quote } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Testimonials = () => {
   const testimonials = [
@@ -38,6 +40,32 @@ const Testimonials = () => {
     }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const testimonialsPerPage = 3;
+  const totalPages = Math.ceil(testimonials.length / testimonialsPerPage);
+
+  // Auto-advance carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalPages);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [totalPages]);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalPages);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalPages) % totalPages);
+  };
+
+  const getCurrentTestimonials = () => {
+    const startIndex = currentIndex * testimonialsPerPage;
+    return testimonials.slice(startIndex, startIndex + testimonialsPerPage);
+  };
+
   return (
     <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -52,8 +80,9 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {testimonials.map((testimonial, index) => (
+        <div className="relative mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {getCurrentTestimonials().map((testimonial, index) => (
             <Card key={index} className="hover:border-primary/50 transition-all duration-300 h-full">
               <CardContent className="p-6 space-y-4 h-full flex flex-col">
                 <div className="flex items-center gap-2 mb-4">
@@ -71,11 +100,42 @@ const Testimonials = () => {
                 
                 <div className="pt-4 border-t border-border">
                   <p className="font-semibold text-primary">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">Upwork Client</p>
                 </div>
               </CardContent>
             </Card>
-          ))}
+            ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4"
+            onClick={prevSlide}
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4"
+            onClick={nextSlide}
+          >
+            <ChevronRight className="w-4 h-4" />
+          </Button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-8 gap-2">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentIndex ? 'bg-primary' : 'bg-muted'
+                }`}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="text-center">
