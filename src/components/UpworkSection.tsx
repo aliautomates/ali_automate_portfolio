@@ -7,8 +7,8 @@ const UpworkSection = () => {
   const upworkStats = [
     { icon: Star, label: "Job Success Score", value: "100%", color: "text-green-500" },
     { icon: Trophy, label: "Top Rated Plus", value: "Badge", color: "text-primary" },
-    { icon: Clock, label: "Total Hours", value: "2,000+", color: "text-blue-500" },
-    { icon: DollarSign, label: "Total Earned", value: "$50K+", color: "text-green-500" },
+    { icon: DollarSign, label: "Total Earned", value: "$1K+", color: "text-green-500" },
+    { icon: Clock, label: "Total Jobs", value: "22", color: "text-blue-500" },
   ];
 
   const handleUpworkClick = () => {
