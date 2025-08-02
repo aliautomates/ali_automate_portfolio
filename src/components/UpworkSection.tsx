@@ -75,7 +75,6 @@ const UpworkSection = () => {
                 <div>
                   <h4 className="font-semibold mb-1">$1K+ Total Earned</h4>
                   <p className="text-muted-foreground">Growing portfolio with proven results</p>
-                  <p className="text-muted-foreground">Growing portfolio with proven results</p>
                 </div>
               </div>
             </div>

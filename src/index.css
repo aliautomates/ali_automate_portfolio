@@ -83,6 +83,15 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 }
 

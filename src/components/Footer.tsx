@@ -22,9 +22,9 @@ const Footer = () => {
             <div className="flex justify-center items-center gap-8 opacity-50">
               <Badge variant="outline">Zapier</Badge>
               <Badge variant="outline">Make.com</Badge>
+              <Badge variant="outline">n8n</Badge>
               <Badge variant="outline">GoHighLevel</Badge>
               <Badge variant="outline">HubSpot</Badge>
-              <Badge variant="outline">Shopify</Badge>
             </div>
           </div>
 

@@ -25,21 +25,14 @@ const Projects = () => {
         {
           title: "Lead Generation & Qualification",
           description: "End-to-end automated lead generation system with AI-powered scoring and qualification.",
-          tools: ["Zapier", "HubSpot", "ChatGPT"],
+          tools: ["n8n", "Make.com", "GoHighLevel"],
           impact: "Increased qualified leads by 200%",
           icon: "🎯"
         },
         {
-          title: "CRM Automation Suite",
-          description: "Complete CRM automation with intelligent data sync, follow-ups, and reporting.",
-          tools: ["Pipedrive", "Make.com", "ActiveCampaign"],
-          impact: "Saved 25+ hours/week",
-          icon: "📊"
-        },
-        {
           title: "Blog Generator with AI Images",
           description: "Automated blog content creation with AI-generated images and SEO optimization.",
-          tools: ["OpenAI", "DALL-E", "WordPress"],
+          tools: ["n8n", "OpenAI", "Make.com"],
           impact: "Generated 100+ blog posts",
           icon: "✍️"
         }
@@ -51,30 +44,23 @@ const Projects = () => {
         {
           title: "Telegram Bot Suite",
           description: "Multi-functional Telegram bots for customer service, notifications, and data collection.",
-          tools: ["Python", "Telegram API", "PostgreSQL"],
+          tools: ["n8n", "Telegram API", "Zapier"],
           impact: "Handled 1000+ daily interactions",
           icon: "📱"
         },
         {
           title: "LinkedIn Outreach Bot",
           description: "Automated LinkedIn connection requests and personalized messaging for lead generation.",
-          tools: ["Selenium", "Python", "CRM Integration"],
+          tools: ["Make.com", "LinkedIn API", "GoHighLevel"],
           impact: "Generated 500+ new connections",
           icon: "💼"
         },
         {
           title: "Form Auto-filling Bot",
           description: "Intelligent form filling automation for repetitive data entry tasks.",
-          tools: ["Python", "Selenium", "JSON"],
+          tools: ["n8n", "Zapier", "Airtable"],
           impact: "Reduced data entry time by 90%",
           icon: "📝"
-        },
-        {
-          title: "WhatsApp Business Bot",
-          description: "Automated customer service and lead qualification through WhatsApp messaging.",
-          tools: ["Python", "WhatsApp API", "AI Integration"],
-          impact: "Handled 800+ daily messages",
-          icon: "💬"
         }
       ]
     },
@@ -84,21 +70,21 @@ const Projects = () => {
         {
           title: "E-commerce Data Mining",
           description: "Comprehensive product data extraction from eBay, Etsy, and other marketplaces.",
-          tools: ["Python", "BeautifulSoup", "Scrapy"],
+          tools: ["Apify", "n8n", "Make.com"],
           impact: "Extracted 50,000+ product listings",
           icon: "🛒"
         },
         {
           title: "Real Estate Analytics",
           description: "Property data scraping from Zillow, Redfin for market analysis and investment decisions.",
-          tools: ["Python", "Selenium", "Pandas"],
+          tools: ["Apify", "Airtable", "Zapier"],
           impact: "Analyzed 10,000+ properties",
           icon: "🏠"
         },
         {
           title: "Social Media Intelligence",
           description: "Automated data collection from LinkedIn, Reddit for market research and sentiment analysis.",
-          tools: ["Python", "API Integration", "NLP"],
+          tools: ["n8n", "Make.com", "ChatGPT"],
           impact: "Processed 100,000+ posts",
           icon: "📈"
         }
@@ -126,7 +112,7 @@ const Projects = () => {
               <h3 className="text-2xl font-bold mb-8 text-center">
                 {category.category}
               </h3>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-3 gap-8">
                 {category.items.map((project, projectIndex) => (
                   <Card key={projectIndex} className="group hover:border-primary/50 transition-all duration-300">
                     <CardHeader>
@@ -135,7 +121,12 @@ const Projects = () => {
                           <span className="text-2xl">{project.icon}</span>
                           <CardTitle className="text-lg">{project.title}</CardTitle>
                         </div>
-                        <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="opacity-0 group-hover:opacity-100 transition-opacity"
+                          onClick={() => navigate("/projects")}
+                        >
                           <ExternalLink className="w-4 h-4" />
                         </Button>
                       </div>

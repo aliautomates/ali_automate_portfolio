@@ -13,7 +13,8 @@ import {
   Send,
   MapPin,
   Clock,
-  Loader2
+  Loader2,
+  Calendar
 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -233,6 +234,8 @@ const Contact = () => {
                       <a 
                         href={contact.link} 
                         className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {contact.value}
                         <ExternalLink className="w-3 h-3" />
@@ -275,9 +278,26 @@ const Contact = () => {
                   Book a free 30-minute consultation to discuss your automation needs 
                   and see how I can help transform your business processes.
                 </p>
-                <Button variant="outline" className="w-full">
+                <Button 
+                  variant="outline" 
+                  className="w-full mb-4"
+                  onClick={() => window.open("https://calendly.com/ali-ahsen/consultation-for-business-automation", "_blank")}
+                >
+                  <Calendar className="mr-2 w-4 h-4" />
                   Schedule Free Consultation
                 </Button>
+                
+                {/* Calendly Inline Widget */}
+                <div className="mt-6">
+                  <iframe
+                    src="https://calendly.com/ali-ahsen/consultation-for-business-automation"
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
+                    title="Schedule a consultation"
+                    className="rounded-lg border"
+                  ></iframe>
+                </div>
               </CardContent>
             </Card>
           </div>

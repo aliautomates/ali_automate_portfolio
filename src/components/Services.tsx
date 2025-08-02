@@ -16,41 +16,42 @@ const Services = () => {
     {
       icon: Bot,
       title: "Business Process Automation",
-      description: "Streamline workflows with intelligent automation using Zapier, Make.com, and n8n",
-      tools: ["Zapier", "Make.com", "n8n", "AI Agents"],
+      description: "Streamline workflows with intelligent automation using n8n, Make.com, and Zapier for seamless business operations",
+      tools: ["n8n", "Make.com", "Zapier", "GoHighLevel"],
       features: ["Workflow Automation", "CRM Integration", "Data Synchronization"]
     },
     {
       icon: Mail,
       title: "Marketing Automation",
-      description: "Optimize lead generation and nurturing with advanced marketing automation systems",
-      tools: ["GoHighLevel", "ActiveCampaign", "Mailchimp"],
+      description: "Optimize lead generation and nurturing with GoHighLevel, n8n, and advanced no-code automation systems",
+      tools: ["GoHighLevel", "n8n", "Make.com", "Instantly"],
       features: ["Lead Nurturing", "AI Segmentation", "Analytics Dashboards"]
     },
     {
       icon: Workflow,
       title: "Custom Low-Code Solutions",
-      description: "Build powerful applications and integrations without traditional coding",
-      tools: ["Make", "AI Integrations", "Custom APIs"],
+      description: "Build powerful applications and integrations using n8n, Make.com, and Zapier without traditional coding",
+      tools: ["n8n", "Make.com", "Zapier", "Airtable"],
       features: ["App Building", "Legacy Modernization", "System Integration"]
     },
     {
       icon: Database,
       title: "Seamless Integrations",
-      description: "Connect all your business tools for unified data flow and operations",
-      tools: ["HubSpot", "Zoho", "Pipedrive", "Shopify"],
+      description: "Connect all your business tools using n8n and Make.com for unified data flow and operations",
+      tools: ["n8n", "Make.com", "GoHighLevel", "Airtable"],
       features: ["CRM Sync", "E-commerce Integration", "AI Tools Integration"]
     }
   ];
 
   const integrations = [
-    { name: "HubSpot", category: "CRM" },
-    { name: "Zoho", category: "CRM" },
-    { name: "Pipedrive", category: "CRM" },
-    { name: "Meta Ads", category: "Marketing" },
-    { name: "Mailchimp", category: "Marketing" },
-    { name: "Shopify", category: "E-commerce" },
-    { name: "WooCommerce", category: "E-commerce" },
+    { name: "n8n", category: "No-Code" },
+    { name: "Make.com", category: "No-Code" },
+    { name: "Zapier", category: "No-Code" },
+    { name: "Airtable", category: "Database" },
+    { name: "Apify", category: "Scraping" },
+    { name: "VAPI", category: "AI Voice" },
+    { name: "Instantly", category: "Email" },
+    { name: "GoHighLevel", category: "CRM" },
     { name: "ChatGPT", category: "AI" },
     { name: "Claude", category: "AI" }
   ];
